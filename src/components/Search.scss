@@ -1,0 +1,25 @@
+@import "../partials/global";
+
+form {
+  margin: 0rem 1rem;
+}
+.search-bar {
+  position: relative;
+  width: 100%;
+  &_icon {
+    position: absolute;
+    top: 50%;
+    left: -1%;
+    transform: translate(100%, -50%);
+    color: lightgrey;
+  }
+}
+
+input {
+  border: grey solid 1px;
+  border-radius: 5rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem 0.2rem 2.5rem;
+  outline: none;
+  width: 100%;
+}

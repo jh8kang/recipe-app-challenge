@@ -1,0 +1,27 @@
+@import "./partials/global";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baskerville";
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+h3 {
+  font-family: "Baskerville";
+  font-weight: bold;
+  font-style: normal;
+}
+
+::placeholder {
+  color: lightgrey;
+  opacity: 1;
+}

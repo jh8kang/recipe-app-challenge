@@ -23,7 +23,6 @@ function Popular() {
       const data = await api.json();
       localStorage.setItem("popular", JSON.stringify(data.recipes));
       setPopular(data.recipes);
-      console.log(data);
     }
   };
   return (

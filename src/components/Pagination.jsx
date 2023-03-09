@@ -1,22 +1,21 @@
 import React from "react";
 
-function Pagination({ itemsPerPage, totalItems }) {
+function Pagination({ itemsPerPage, totalItems, paginate }) {
   const pageNumbers = [];
   for (let i = 1; i < Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(totalItems);
   return (
     <nav>
-      hi
-      <ul className="Pagination">
+      <ul className="pagination">
         {pageNumbers.map((num) => {
-          <li key={num} className="page-item">
-            hi
-            {/* <a href="!#" className="page-link">
-              {num}
-            </a> */}
-          </li>;
+          return (
+            <li key={num} className="page-item">
+              <p onClick={() => paginate(num)} href="!#" className="page-link">
+                {num}
+              </p>
+            </li>
+          );
         })}
       </ul>
     </nav>

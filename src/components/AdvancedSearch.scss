@@ -1,0 +1,12 @@
+@import "../partials/global";
+
+.advanced-search {
+  display: flex;
+  flex-direction: column;
+  &_title {
+    text-align: left;
+  }
+  &_checks {
+    display: flex;
+  }
+}

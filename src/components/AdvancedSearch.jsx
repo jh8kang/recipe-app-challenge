@@ -38,7 +38,7 @@ export default function AdvancedSearch({
       <div className="advanced-search_btn_container">
         <button
           onClick={saveFilterHandler}
-          type="sumbit"
+          type="submit"
           className="btn btn-primary advanced-search_btn"
         >
           Save

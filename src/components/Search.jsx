@@ -5,8 +5,7 @@ import { IoOptions } from "react-icons/io5";
 import { Searched, AdvancedSearch } from "../components";
 
 function Search() {
-  //   let [input, setInput] = useState("");
-  let [searchedInput, setSearchedInput] = useState("");
+  let [input, setInput] = useState("");
   let [filter, setFilter] = useState(false);
   let [formData, setFormData] = useState({
     searchInput: "",
@@ -43,7 +42,6 @@ function Search() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setSearchedInput(e.target.searchInput.value);
     const selectedCuisines = cuisines
       .filter((c) => c.checked)
       .map((c) => c.name);
@@ -59,11 +57,7 @@ function Search() {
   };
 
   const filterHandler = () => {
-    if (filter) {
-      setFilter(false);
-    } else {
-      setFilter(true);
-    }
+    setFilter((prevFilter) => !prevFilter);
   };
 
   const saveFilterHandler = (e) => {
@@ -76,6 +70,7 @@ function Search() {
       ...formData,
       filteredCuisines: query,
     });
+    setIsSubmitted(true);
     setFilter(false);
   };
 
@@ -89,8 +84,9 @@ function Search() {
             name="searchInput"
             aria-label="Search"
             aria-describedby="search-addon"
-            // onChange={(e) => setInput(e.target.value)}
             placeholder="Search for a recipe"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button type="submit" className="btn btn-outline-primary">
             <FaSearch />
@@ -108,7 +104,7 @@ function Search() {
         ) : null}
       </form>
       {isSubmitted ? (
-        <Searched searchedInput={searchedInput} formData={formData} />
+        <Searched formData={formData} isSubmitted={isSubmitted} />
       ) : null}
     </>
   );

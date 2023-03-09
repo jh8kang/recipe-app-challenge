@@ -1,39 +1,48 @@
 import "./AdvancedSearch.scss";
-import { useState } from "react";
 
-export default function AdvancedSearch() {
-  let [cuisines, setCuisines] = useState([
-    { name: "African", checked: false },
-    { name: "British", checked: false },
-    { name: "American", checked: false },
-    { name: "Chinese", checked: false },
-    // add other cuisines here
-  ]);
+export default function AdvancedSearch({
+  cuisines,
+  setCuisines,
+  saveFilterHandler,
+}) {
   return (
     <div className="mt-3 advanced-search">
       <h5 className="advanced-search_title">Advanced Search</h5>
-      <div className="advanced-search_checks">
-        {cuisines.map((cuisine) => (
-          <div key={cuisine.name} className="form-check ">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name={cuisine.name}
-              id={cuisine.name}
-              checked={cuisine.checked}
-              onChange={() =>
-                setCuisines(
-                  cuisines.map((c) =>
-                    c.name === cuisine.name ? { ...c, checked: !c.checked } : c
+      <div className="container advanced-search_checks">
+        <div className="row">
+          {cuisines.map((cuisine) => (
+            <div key={cuisine.name} className="form-check col-md-3">
+              <input
+                className="checkbox"
+                type="checkbox"
+                name={cuisine.name}
+                id={cuisine.name}
+                checked={cuisine.checked}
+                onChange={() =>
+                  setCuisines(
+                    cuisines.map((c) =>
+                      c.name === cuisine.name
+                        ? { ...c, checked: !c.checked }
+                        : c
+                    )
                   )
-                )
-              }
-            />
-            <label className="form-check-label" htmlFor={cuisine.name}>
-              {cuisine.name}
-            </label>
-          </div>
-        ))}
+                }
+              />
+              <label className="form-check-label" htmlFor={cuisine.name}>
+                {cuisine.name}
+              </label>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="advanced-search_btn_container">
+        <button
+          onClick={saveFilterHandler}
+          type="sumbit"
+          className="btn btn-primary advanced-search_btn"
+        >
+          Save
+        </button>
       </div>
     </div>
   );

@@ -4,14 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Pagination } from "./index";
 
-function Searched({ searchedInput }) {
+function Searched({ searchedInput, formData }) {
   let [searchedRecipes, setSearchedRecipes] = useState([]);
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(5);
   let searchMax = 50;
+  console.log("formData inside Searched component", formData);
   const getSearched = async () => {
     const api = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchedInput}&number=${searchMax}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${formData.searchInput}&number=${searchMax}&cuisine=${formData.filteredCuisines}`
     );
     const data = await api.json();
     setSearchedRecipes(data.results);

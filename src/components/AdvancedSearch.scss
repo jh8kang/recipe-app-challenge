@@ -9,4 +9,21 @@
   &_checks {
     display: flex;
   }
+  &_btn {
+    min-width: 100px;
+    width: 15%;
+  }
+  &_btn_container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.form-check {
+  display: flex;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
 }

@@ -25,7 +25,13 @@ function Home() {
           setIsSubmitted={setIsSubmitted}
         />
       </div>
-      {isSubmitted ? <Searched formData={formData} /> : null}
+      {isSubmitted ? (
+        <Searched formData={formData} />
+      ) : (
+        <div className="no-search-message">
+          <p>Try typing "Chicken" in the search bar.</p>
+        </div>
+      )}
     </div>
   );
 }

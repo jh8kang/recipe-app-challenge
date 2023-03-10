@@ -4,15 +4,15 @@ import { FaSearch } from "react-icons/fa";
 import { IoOptions } from "react-icons/io5";
 import { Searched, AdvancedSearch } from "../components";
 
-function Search() {
+function Search({ formData, setFormData, isSubmitted, setIsSubmitted }) {
   let [input, setInput] = useState("");
   let [filter, setFilter] = useState(false);
-  let [formData, setFormData] = useState({
-    searchInput: "",
-    filteredCuisines: "",
-  });
+  // let [formData, setFormData] = useState({
+  //   searchInput: "",
+  //   filteredCuisines: "",
+  // });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [isSubmitted, setIsSubmitted] = useState(false);
   let [cuisines, setCuisines] = useState([
     { name: "African", checked: false },
     { name: "American", checked: false },
@@ -42,7 +42,6 @@ function Search() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     const selectedCuisines = cuisines
       .filter((c) => c.checked)
       .map((c) => c.name);
@@ -77,37 +76,38 @@ function Search() {
 
   return (
     <>
-      <form onSubmit={submitHandler} id="searchForm" className="search-form">
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">
-            <FaSearch />
-          </span>
-          <input
-            type="search"
-            className="form-control shadow-none w-50 "
-            name="searchInput"
-            placeholder="Search for a recipe"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-        </div>
-        <IoOptions className="filter-icon" onClick={filterHandler} />
-        {filter ? (
-          <AdvancedSearch
-            cuisines={cuisines}
-            setCuisines={setCuisines}
-            saveFilterHandler={saveFilterHandler}
-            setFilter={setFilter}
-            submitHandler={submitHandler}
-          />
-        ) : null}
-        <button type="submit" className="btn btn-outline-primary search-btn ">
-          Find Recipe
-        </button>
-      </form>
-      {isSubmitted ? (
-        <Searched formData={formData} isSubmitted={isSubmitted} />
-      ) : null}
+      <div className="test">
+        <form onSubmit={submitHandler} id="searchForm" className="search-form">
+          <div className="search-bar">
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">
+                <FaSearch />
+              </span>
+              <input
+                type="search"
+                className="form-control shadow-none w-50 "
+                name="searchInput"
+                placeholder="Search for a recipe"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-dark search-btn ">
+              Find Recipe
+            </button>
+            <IoOptions className="filter-icon" onClick={filterHandler} />
+          </div>
+          {filter ? (
+            <AdvancedSearch
+              cuisines={cuisines}
+              setCuisines={setCuisines}
+              saveFilterHandler={saveFilterHandler}
+              setFilter={setFilter}
+              submitHandler={submitHandler}
+            />
+          ) : null}
+        </form>
+      </div>
     </>
   );
 }

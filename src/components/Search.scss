@@ -2,12 +2,17 @@
 
 .search-form {
   width: 100%;
-  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
+}
+.search-bar {
+  display: flex;
+  padding: 0% 8%;
+
   @include tablet {
-    flex-direction: row;
+    padding: 0;
     width: 60%;
+    margin-left: 8%;
   }
   @include desktop {
     width: 50%;
@@ -37,13 +42,8 @@ input {
 }
 
 .search-btn {
-  background-color: $button;
   border: none;
-  color: $button-text;
   min-width: 140px;
   padding: 0;
   height: 45px;
-  &:active {
-    background-color: $button-text;
-  }
 }

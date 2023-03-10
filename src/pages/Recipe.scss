@@ -5,8 +5,9 @@
   flex-direction: column;
   width: 100%;
   @include tablet {
-    padding-top: 50px;
     flex-direction: row;
+    padding: 3% 8%;
+    overflow: hidden;
   }
   &-fixed-column {
     display: flex;
@@ -46,6 +47,7 @@
     height: 100vh;
     overflow-y: scroll;
     width: 50%;
+    padding-bottom: 150px;
   }
 }
 

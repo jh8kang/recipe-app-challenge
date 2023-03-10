@@ -39,7 +39,7 @@ export default function AdvancedSearch({
         <button
           onClick={saveFilterHandler}
           type="submit"
-          className="btn btn-primary advanced-search_btn"
+          className="btn btn-dark advanced-search_btn"
         >
           Save
         </button>

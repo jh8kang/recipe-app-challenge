@@ -1,11 +1,16 @@
 @import "../partials/global";
 
 .home {
-  padding: 2rem 0rem;
-  margin: 0% 8%;
+  height: 100%;
+  // background-color: $background;
+}
+.hero {
+  // padding: 2% 8% 5% 8%;
+  background-color: $background;
 }
 .slogan {
   &_container {
+    padding: 0% 8%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

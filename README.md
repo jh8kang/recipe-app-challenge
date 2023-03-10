@@ -1,6 +1,7 @@
 # Recipe Website
 
-This project is a coding assessment for Medavie Blue Cross
+This project is a coding assessment for Medavie Blue Cross.
+Site is deployed on https://quiet-nasturtium-7eeb62.netlify.app/
 
 ## Requirements
 
@@ -25,5 +26,3 @@ This project is a coding assessment for Medavie Blue Cross
 
 - https://spoonacular.com/food-api/docs
 
-#Deployment
-Site is deployed on https://quiet-nasturtium-7eeb62.netlify.app/

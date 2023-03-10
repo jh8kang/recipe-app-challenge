@@ -13,8 +13,9 @@ header {
   background-color: $background;
   padding: 0% 8%;
   height: 80px;
-  position: relative;
+  position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .logo {

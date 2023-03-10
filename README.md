@@ -1,10 +1,10 @@
 # Recipe Website
 
-This project is for the coding assessment for Medavie Blue Cross
+This project is a coding assessment for Medavie Blue Cross
 
 ## Requirements
 
-Home Page:
+#Home Page:
 
 - Search function including:
   - Search input
@@ -15,12 +15,12 @@ Home Page:
   - Recipe name and image
 - Link to recipe page
 
-Recipe Details Page:
+#Recipe Details Page:
 
 - Information including:
   - Recipe name, image, health info, ingredients, instructions
   - Each ingredient's name and measurements
 
-API used:
+#API used:
 
 - https://spoonacular.com/food-api/docs

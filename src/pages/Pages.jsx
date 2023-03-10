@@ -6,7 +6,7 @@ function Pages() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/recipe/:name" element={<Recipe />} />
+      <Route path="/recipe/:id" element={<Recipe />} />
     </Routes>
   );
 }

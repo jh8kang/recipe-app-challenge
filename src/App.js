@@ -7,11 +7,13 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <p className="logo">EASYCOOKING</p>
+        <p className="logo">AMY'S COOKBOOK</p>
       </header>
-      <BrowserRouter>
-        <Pages />
-      </BrowserRouter>
+      <div className="content">
+        <BrowserRouter>
+          <Pages />
+        </BrowserRouter>
+      </div>
       <footer></footer>
     </div>
   );

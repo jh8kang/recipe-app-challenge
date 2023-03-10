@@ -1,5 +1,8 @@
 @import "../partials/global";
 
+.search-form {
+  margin-bottom: 50px;
+}
 .search-bar {
   position: relative;
   width: 100%;
@@ -24,6 +27,8 @@ input {
 .filter-icon {
   width: 30px;
   height: 30px;
+  margin-left: 10px;
+  color: grey;
 }
 
 // .input-group {

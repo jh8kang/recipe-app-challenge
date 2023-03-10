@@ -21,9 +21,13 @@
 
 .form-check {
   display: flex;
-}
-
-.checkbox {
-  width: 25px;
-  height: 25px;
+  margin-bottom: 10px;
+  &_label {
+    font-size: 0.8rem;
+  }
+  &_checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
 }

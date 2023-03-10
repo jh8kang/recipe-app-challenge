@@ -36,7 +36,7 @@ function Searched({ formData }) {
   console.log("searchedRecipes", searchedRecipes);
   return (
     <div className="container">
-      <div className="row">
+      <div className="row g-5 justify-content-start">
         {currentItems?.map((item) => {
           return (
             <div className="col-md-3" id={item.id} key={item.id}>

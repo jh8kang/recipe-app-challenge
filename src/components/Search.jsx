@@ -77,7 +77,7 @@ function Search() {
 
   return (
     <>
-      <form onSubmit={submitHandler} id="searchForm">
+      <form onSubmit={submitHandler} id="searchForm" className="search-form">
         <div className="input-group">
           <input
             type="search"
@@ -90,8 +90,8 @@ function Search() {
           <button type="submit" className="btn btn-outline-primary">
             <FaSearch />
           </button>
+          <IoOptions className="filter-icon" onClick={filterHandler} />
         </div>
-        <IoOptions className="filter-icon" onClick={filterHandler} />
         {filter ? (
           <AdvancedSearch
             cuisines={cuisines}

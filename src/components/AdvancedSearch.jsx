@@ -7,13 +7,13 @@ export default function AdvancedSearch({
 }) {
   return (
     <div className="mt-3 advanced-search">
-      <h5 className="advanced-search_title">Advanced Search</h5>
+      <p className="advanced-search_title">Advanced Search</p>
       <div className="container advanced-search_checks">
         <div className="row">
           {cuisines.map((cuisine) => (
-            <div key={cuisine.name} className="form-check col-md-3">
+            <div key={cuisine.name} className="form-check col-md-4 col-lg-3">
               <input
-                className="checkbox"
+                className="form-check_checkbox"
                 type="checkbox"
                 name={cuisine.name}
                 id={cuisine.name}
@@ -28,7 +28,7 @@ export default function AdvancedSearch({
                   )
                 }
               />
-              <label className="form-check-label" htmlFor={cuisine.name}>
+              <label className="form-check_label" htmlFor={cuisine.name}>
                 {cuisine.name}
               </label>
             </div>

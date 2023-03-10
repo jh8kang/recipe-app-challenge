@@ -1,16 +1,24 @@
+@import "./partials/global";
+
 .App {
   text-align: center;
-  margin: 5% 8%;
+}
+.content {
+  margin: 0% 8%;
 }
 
 header {
   display: flex;
+  background-color: $background;
+  padding: 5% 8%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   margin: 0;
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {

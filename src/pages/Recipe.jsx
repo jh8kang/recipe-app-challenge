@@ -6,22 +6,25 @@ import "./Recipe.scss";
 function Recipe() {
   let params = useParams();
   const [details, setDetails] = useState({});
-
   const fetchDetails = async () => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
     );
+    if (!data.ok) {
+      throw new Error("Failed to fetch recipe details");
+    }
     const detailedData = await data.json();
-    console.log("detailedData", detailedData);
     setDetails(detailedData);
   };
 
   useEffect(() => {
     fetchDetails();
-  }, [params.name]);
-  console.log(details);
-  console.log(typeof details.summary);
+  }, [params.id]);
+
   const summary = details.summary ? parse(details.summary) : null;
+  const instructions = details.instructions
+    ? parse(details.instructions)
+    : null;
   return (
     <div>
       <p>{details.title}</p>
@@ -30,11 +33,11 @@ function Recipe() {
       <h5>Health Information</h5>
       <div>
         <h6>Vegan</h6>
-        {details.vagan ? <p>yes</p> : <p>no</p>}
+        {details.vegan ? <p>yes</p> : <p>no</p>}
       </div>
       <div>
         <h6>Vegetarian</h6>
-        {details.vegatarian ? <p>yes</p> : <p>no</p>}
+        {details.vegetarian ? <p>yes</p> : <p>no</p>}
       </div>
       <div>
         <h6>Dairy free</h6>
@@ -56,11 +59,7 @@ function Recipe() {
       })}
 
       <h5>Instructions ({details.readyInMinutes} Min) </h5>
-      <ol>
-        {details.analyzedInstructions[0]?.steps?.map((steps) => {
-          return <li>{steps.step}</li>;
-        })}
-      </ol>
+      <div>{instructions}</div>
     </div>
   );
 }

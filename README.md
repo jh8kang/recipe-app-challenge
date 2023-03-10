@@ -25,5 +25,5 @@ This project is a coding assessment for Medavie Blue Cross
 
 - https://spoonacular.com/food-api/docs
 
-NOTE
+#Deployment
 Site is deployed on https://quiet-nasturtium-7eeb62.netlify.app/

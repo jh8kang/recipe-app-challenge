@@ -25,41 +25,49 @@ function Recipe() {
   const instructions = details.instructions
     ? parse(details.instructions)
     : null;
+  console.log(details.summary);
   return (
-    <div>
-      <img src={details.image} alt={details.title} />
-      <p>{details.title}</p>
-      <p>{summary}</p>
-      <h5>Health Information</h5>
-      <div>
-        <h6>Vegan</h6>
-        {details.vegan ? <p>yes</p> : <p>no</p>}
+    <div className="recipe">
+      <div className="recipe-fixed-column">
+        <img src={details.image} alt={details.title} className="recipe-img" />
       </div>
-      <div>
-        <h6>Vegetarian</h6>
-        {details.vegetarian ? <p>yes</p> : <p>no</p>}
-      </div>
-      <div>
-        <h6>Dairy free</h6>
-        {details.dairyFree ? <p>yes</p> : <p>no</p>}
-      </div>
-      <div>
-        <h6>Gluten free</h6>
-        {details.glutenFree ? <p>yes</p> : <p>no</p>}
-      </div>
-      <h5>Ingredients for {`${details.servings}`} servings </h5>
-      {details.extendedIngredients?.map((ingredient) => {
-        return (
-          <div key={ingredient.id} className="ingredient-container">
-            <p>{ingredient.nameClean} &nbsp;&nbsp;</p>
-            <p>{ingredient.measures.metric.amount}&nbsp;</p>
-            <p>{ingredient.measures.metric.unitShort}</p>
+      <div className="scrollable-column">
+        <div className="section">
+          <p className="recipe-title">{details.title}</p>
+          <p>{summary}</p>
+        </div>
+        <div className="section">
+          <h5 className="section-title">Health Information</h5>
+          <div className="section-body">
+            {details.vegan ? <div className="tag">Vegan</div> : null}
+            {details.vegetarian ? <div className="tag">Vegetarian</div> : null}
+            {details.dairyFree ? <div className="tag">Dairy Free</div> : null}
+            {details.glutenFree ? <div className="tag">Gluten Free</div> : null}
           </div>
-        );
-      })}
-
-      <h5>Instructions ({details.readyInMinutes} Min) </h5>
-      <div>{instructions}</div>
+        </div>
+        <div className="section">
+          <h5 className="section-title">
+            Ingredients ({`${details.servings}`}Serving)
+          </h5>
+          <div className="ingredients">
+            {details.extendedIngredients?.map((ingredient) => {
+              return (
+                <div key={ingredient.id} className="ingredients-container">
+                  {ingredient.measures.metric.amount}&nbsp;
+                  {ingredient.measures.metric.unitShort} &nbsp;&nbsp;&nbsp;
+                  {ingredient.nameClean} &nbsp;&nbsp;
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="section">
+          <h5 className="section-title">
+            Cooking Instructions ({details.readyInMinutes} Min){" "}
+          </h5>
+          <p>{instructions}</p>
+        </div>
+      </div>
     </div>
   );
 }

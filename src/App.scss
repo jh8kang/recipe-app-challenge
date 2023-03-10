@@ -4,9 +4,12 @@
   text-align: center;
 }
 .content {
-  margin: 0% 8%;
+  // margin: 0% 8%;
 }
 
+p {
+  text-align: start;
+}
 header {
   display: flex;
   background-color: $background;

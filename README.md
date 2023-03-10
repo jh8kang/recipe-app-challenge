@@ -24,3 +24,5 @@ This project is a coding assessment for Medavie Blue Cross
 #API used:
 
 - https://spoonacular.com/food-api/docs
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/716b02eb-61bd-466c-a4f9-c34bf86e831d/deploy-status)](https://app.netlify.com/sites/quiet-nasturtium-7eeb62/deploys)

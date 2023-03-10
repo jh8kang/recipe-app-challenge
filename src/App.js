@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <p>Logo</p>
+        <p className="logo">EASYCOOKING</p>
       </header>
       <BrowserRouter>
         <Pages />

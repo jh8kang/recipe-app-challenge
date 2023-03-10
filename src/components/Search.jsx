@@ -42,6 +42,7 @@ function Search() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     const selectedCuisines = cuisines
       .filter((c) => c.checked)
       .map((c) => c.name);
@@ -82,8 +83,6 @@ function Search() {
             type="search"
             className="form-control rounded shadow-none"
             name="searchInput"
-            aria-label="Search"
-            aria-describedby="search-addon"
             placeholder="Search for a recipe"
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -91,8 +90,8 @@ function Search() {
           <button type="submit" className="btn btn-outline-primary">
             <FaSearch />
           </button>
-          <IoOptions className="filter-icon" onClick={filterHandler} />
         </div>
+        <IoOptions className="filter-icon" onClick={filterHandler} />
         {filter ? (
           <AdvancedSearch
             cuisines={cuisines}

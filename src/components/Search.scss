@@ -1,8 +1,5 @@
 @import "../partials/global";
 
-form {
-  margin: 0rem 1rem;
-}
 .search-bar {
   position: relative;
   width: 100%;
@@ -28,3 +25,8 @@ input {
   width: 30px;
   height: 30px;
 }
+
+// .input-group {
+//   display: flex;
+//   flex-direction: column;
+// }

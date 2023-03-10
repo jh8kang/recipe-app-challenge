@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Pagination } from "./index";
+import { FiArrowRight } from "react-icons/fi";
 
 function Searched({ formData }) {
   let [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -39,17 +40,15 @@ function Searched({ formData }) {
       <div className="row g-5 justify-content-start">
         {currentItems?.map((item) => {
           return (
-            <div className="col-md-3" id={item.id} key={item.id}>
+            <div className="col-md-4 col-lg-3" id={item.id} key={item.id}>
               <div className="card">
-                <img src={item.image} alt={item.id} />
+                <img src={item.image} alt={item.id} className="card-img" />
                 <div className="card-body">
-                  <p className="card-text description-text">{item.title}</p>
+                  <Link to={"/recipe/" + item.id} className="card-link">
+                    <p className="card-title">{item.title}</p>
+                    <FiArrowRight className="arrow-icon" />
+                  </Link>
                 </div>
-                <Link to={"/recipe/" + item.id}>
-                  <button type="button" className="btn btn-primary card-btn">
-                    Details
-                  </button>
-                </Link>
               </div>
             </div>
           );

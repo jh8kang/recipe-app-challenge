@@ -10,7 +10,8 @@
 header {
   display: flex;
   background-color: $background;
-  padding: 5% 8%;
+  padding: 0% 8%;
+  height: 80px;
 }
 
 .logo {
@@ -19,6 +20,15 @@ header {
   margin: 0;
   font-weight: bold;
   font-style: normal;
+  &-container {
+    text-decoration: none;
+    color: $text-color;
+    display: flex;
+    align-items: center;
+    &:visited {
+      color: $text-color;
+    }
+  }
 }
 
 /* @media (prefers-reduced-motion: no-preference) {

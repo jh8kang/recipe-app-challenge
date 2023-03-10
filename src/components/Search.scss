@@ -1,18 +1,22 @@
 @import "../partials/global";
 
 .search-form {
-  margin-bottom: 50px;
-}
-.search-bar {
-  position: relative;
   width: 100%;
-  &_icon {
-    position: absolute;
-    top: 50%;
-    left: -1%;
-    transform: translate(100%, -50%);
-    color: lightgrey;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    width: 60%;
   }
+  @include desktop {
+    width: 50%;
+  }
+}
+
+.input-group-text {
+  background-color: white;
+  height: 45px;
 }
 
 input {
@@ -29,9 +33,17 @@ input {
   height: 30px;
   margin-left: 10px;
   color: grey;
+  margin-bottom: 10px;
 }
 
-// .input-group {
-//   display: flex;
-//   flex-direction: column;
-// }
+.search-btn {
+  background-color: $button;
+  border: none;
+  color: $button-text;
+  min-width: 140px;
+  padding: 0;
+  height: 45px;
+  &:active {
+    background-color: $button-text;
+  }
+}

@@ -2,19 +2,22 @@ import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 import Pages from "./pages/Pages";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <p className="logo">AMY'S COOKBOOK</p>
-      </header>
-      <div className="content">
-        <BrowserRouter>
+      <BrowserRouter>
+        <header className="header">
+          <Link to="/" className="logo-container">
+            <p className="logo">AMY'S COOKBOOK</p>
+          </Link>
+        </header>
+        <div className="content">
           <Pages />
-        </BrowserRouter>
-      </div>
-      <footer></footer>
+        </div>
+        <footer></footer>
+      </BrowserRouter>
     </div>
   );
 }

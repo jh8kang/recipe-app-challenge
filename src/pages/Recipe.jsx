@@ -1,7 +1,7 @@
+import "./Recipe.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
-import "./Recipe.scss";
 
 function Recipe() {
   let params = useParams();
@@ -27,8 +27,8 @@ function Recipe() {
     : null;
   return (
     <div>
-      <p>{details.title}</p>
       <img src={details.image} alt={details.title} />
+      <p>{details.title}</p>
       <p>{summary}</p>
       <h5>Health Information</h5>
       <div>

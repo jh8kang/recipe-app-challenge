@@ -5,36 +5,37 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
+.card {
+  border: none;
 }
-// .card {
-//   display: flex;
-//   flex-direction: row;
-// }
+.card-img {
+  border-radius: 10px;
+}
+.card-link {
+  text-decoration: none;
+  color: $text-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  @include tablet {
+    font-size: 0.8rem;
+  }
+}
 
-// .card-btn {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 90%;
-// }
-
-// .card-body {
-//   height: 4em;
-// }
-
-// .description-text {
-//   text-overflow: ellipsis;
-//   overflow: hidden;
-//   // Addition lines for 2 line or multiline ellipsis
-//   display: -webkit-box !important;
-//   -webkit-line-clamp: 2;
-//   -webkit-box-orient: vertical;
-//   white-space: normal;
-// }
+.arrow-icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 15px;
+}

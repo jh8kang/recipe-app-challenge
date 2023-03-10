@@ -78,20 +78,20 @@ function Search() {
   return (
     <>
       <form onSubmit={submitHandler} id="searchForm" className="search-form">
-        <div className="input-group">
+        <div className="input-group mb-3">
+          <span className="input-group-text" id="basic-addon1">
+            <FaSearch />
+          </span>
           <input
             type="search"
-            className="form-control rounded shadow-none"
+            className="form-control shadow-none w-50 "
             name="searchInput"
             placeholder="Search for a recipe"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit" className="btn btn-outline-primary">
-            <FaSearch />
-          </button>
-          <IoOptions className="filter-icon" onClick={filterHandler} />
         </div>
+        <IoOptions className="filter-icon" onClick={filterHandler} />
         {filter ? (
           <AdvancedSearch
             cuisines={cuisines}
@@ -101,6 +101,9 @@ function Search() {
             submitHandler={submitHandler}
           />
         ) : null}
+        <button type="submit" className="btn btn-outline-primary search-btn ">
+          Find Recipe
+        </button>
       </form>
       {isSubmitted ? (
         <Searched formData={formData} isSubmitted={isSubmitted} />

@@ -2,17 +2,11 @@ import "./Search.scss";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoOptions } from "react-icons/io5";
-import { Searched, AdvancedSearch } from "../components";
+import { AdvancedSearch } from "../components";
 
-function Search({ formData, setFormData, isSubmitted, setIsSubmitted }) {
+function Search({ formData, setFormData, setIsSubmitted }) {
   let [input, setInput] = useState("");
   let [filter, setFilter] = useState(false);
-  // let [formData, setFormData] = useState({
-  //   searchInput: "",
-  //   filteredCuisines: "",
-  // });
-
-  // const [isSubmitted, setIsSubmitted] = useState(false);
   let [cuisines, setCuisines] = useState([
     { name: "African", checked: false },
     { name: "American", checked: false },
@@ -40,6 +34,7 @@ function Search({ formData, setFormData, isSubmitted, setIsSubmitted }) {
     { name: "Vietnamese", checked: false },
   ]);
 
+  // Submits form with the search input and filtered cuisines
   const submitHandler = (e) => {
     e.preventDefault();
     const selectedCuisines = cuisines
@@ -56,10 +51,12 @@ function Search({ formData, setFormData, isSubmitted, setIsSubmitted }) {
     document.getElementById("searchForm").reset();
   };
 
+  // Toggles the filter
   const filterHandler = () => {
     setFilter((prevFilter) => !prevFilter);
   };
 
+  // Saves the filtered cuisines
   const saveFilterHandler = (e) => {
     e.preventDefault();
     const selectedCuisines = cuisines

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Search } from "../components";
 import "./Home.scss";
 import { Searched } from "../components";
+import heroImage from "../assets/images/hero-illustration.png";
+import chicken from "../assets/images/chicken.png";
 
 function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,11 +27,14 @@ function Home() {
           setFormData={setFormData}
           setIsSubmitted={setIsSubmitted}
         />
+
+        <img src={heroImage} alt="hero" className="hero-img" />
       </div>
       {isSubmitted ? (
         <Searched formData={formData} />
       ) : (
         <div className="no-search-message">
+          <img src={chicken} alt="chicken" className="chicken-icon" />
           <p>Try typing "Chicken" in the search bar.</p>
         </div>
       )}

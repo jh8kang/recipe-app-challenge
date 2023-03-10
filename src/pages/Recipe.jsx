@@ -1,12 +1,14 @@
 import "./Recipe.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 
 function Recipe() {
   let params = useParams();
   const [details, setDetails] = useState({});
-  const fetchDetails = async () => {
+
+  // Fetches recipe detalis using recipe id from spoonacular API
+  const fetchDetails = useCallback(async () => {
     const data = await fetch(
       `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
     );
@@ -15,23 +17,24 @@ function Recipe() {
     }
     const detailedData = await data.json();
     setDetails(detailedData);
-  };
+  }, [params.id]);
 
   useEffect(() => {
     fetchDetails();
-  }, [params.id]);
+  }, [params.id, fetchDetails]);
 
+  // Checks if summary and instructions are available to parse
   const summary = details.summary ? parse(details.summary) : null;
   const instructions = details.instructions
     ? parse(details.instructions)
     : null;
-  console.log(details.summary);
+
   return (
     <div className="recipe">
       <div className="recipe-fixed-column">
         <img src={details.image} alt={details.title} className="recipe-img" />
       </div>
-      <div className="scrollable-column">
+      <div className="recipe-scrollable-column">
         <div className="section">
           <p className="recipe-title">{details.title}</p>
           <p>{summary}</p>

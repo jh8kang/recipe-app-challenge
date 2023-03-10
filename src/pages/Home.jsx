@@ -9,12 +9,13 @@ function Home() {
     searchInput: "",
     filteredCuisines: "",
   });
+
   return (
     <div className="home">
       <div className="hero">
-        <div className="slogan_container">
-          <p className="slogan_text">Discover Your Next Recipe</p>
-          <p className="slogan_description">
+        <div className="slogan-container">
+          <p className="slogan-text">Discover Your Next Recipe</p>
+          <p className="slogan-description">
             Recipe search directory by Amy Kang for Medavie Blue Cross
           </p>
         </div>

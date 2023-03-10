@@ -16,7 +16,6 @@ function App() {
         <div className="content">
           <Pages />
         </div>
-        <footer></footer>
       </BrowserRouter>
     </div>
   );

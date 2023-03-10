@@ -6,16 +6,16 @@
   flex-direction: column;
   background-color: $grey2;
 
-  &_title {
+  &-title {
     text-align: left;
   }
-  &_checks {
+  &-checks {
     display: flex;
   }
-  &_btn {
+  &-btn {
     width: 100px;
   }
-  &_btn_container {
+  &-btn-container {
     display: flex;
     justify-content: center;
     margin-top: 32px;
@@ -25,10 +25,10 @@
 .form-check {
   display: flex;
   margin-bottom: 10px;
-  &_label {
+  &-label {
     font-size: 0.8rem;
   }
-  &_checkbox {
+  &-checkbox {
     width: 20px;
     height: 20px;
     margin-right: 10px;

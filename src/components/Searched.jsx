@@ -1,5 +1,5 @@
 import "./Searched.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Pagination } from "./index";
@@ -10,19 +10,20 @@ function Searched({ formData }) {
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(5);
   let searchMax = 50;
-  console.log("formData inside Searched component", formData);
-  const getSearched = async () => {
+
+  // Fetches searched recipes from spoonacular API. Searches the inpu and filters by cuisine.
+  const getSearched = useCallback(async () => {
     const api = await fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${formData.searchInput}&number=${searchMax}&cuisine=${formData.filteredCuisines}`
     );
     const data = await api.json();
     setSearchedRecipes(data.results);
-  };
+  }, [formData, searchMax]);
   useEffect(() => {
     getSearched();
-  }, [formData]);
+  }, [formData, getSearched]);
 
-  //   Get current post
+  // Gets page items to display on current page in pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = searchedRecipes?.slice(
@@ -30,11 +31,11 @@ function Searched({ formData }) {
     indexOfLastItem
   );
 
-  //   Change page
+  // Updates current page number in pagination
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  console.log("searchedRecipes", searchedRecipes);
+
   return (
     <div className="container">
       <div className="row g-5 justify-content-start searched-container ">
